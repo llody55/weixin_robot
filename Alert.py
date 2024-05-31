@@ -24,12 +24,14 @@ def format_message(alert_info):
     content = "## <font color=\"{color}\">{title}: {status}</font>\n"\
               "**告警项目:** <font color=\"warning\">{region}</font>\n"\
               "**告警名称:** <font color=\"warning\">{alertnames}</font>\n"\
+              "**告警主题:** <font color=\"warning\">{summary}</font>\n"\
               "**告警级别:** {levels}\n"\
               "**告警时间:** {start_time}\n".format(
                   color="red" if alert_info['status'] == 'firing' else "info",
                   title="告警通知" if alert_info['status'] == 'firing' else "恢复通知",
                   status=alert_info['status'],
                   region=alert_info['region'],
+                  summary=alert_info['summary'],
                   alertnames=alert_info['alertnames'],
                   levels=alert_info['levels'],
                   start_time=alert_info['start_time']
@@ -62,7 +64,6 @@ def webhook_url(params, url_key):
 
 def send_alert(json_re, url_key):
     for i in json_re['alerts']:
-        print("消息体:", i)
         is_k8s = 'namespace' in i['labels']
         alert_info = {
             'status': i['status'],
@@ -74,6 +75,7 @@ def send_alert(json_re, url_key):
             'instance': i['labels'].get('instance', 'Unknown'),
             'namespace': i['labels'].get('namespace', 'Unknown'),
             'description': i['annotations'].get('description', i['annotations'].get('message', 'Service is wrong')),
+            'summary': i['annotations'].get('summary', 'Service is wrong'),
             'is_k8s': is_k8s
         }
         message = format_message(alert_info)

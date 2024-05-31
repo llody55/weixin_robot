@@ -6,13 +6,16 @@ LastEditTime: 2024-05-30 10:40:38
 FilePath: weixin_robot\main.py
 Description: 
 '''
+
+import os
+import sys
+import json
+import Alert
+import argparse
 from flask import Flask, request
 from flask_json import FlaskJSON, as_json
 from gevent import pywsgi
-import sys
-import Alert
-import argparse
-import json
+
 
 app = Flask(__name__)
 FlaskJSON(app)
@@ -27,8 +30,8 @@ def alert_data():
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Run the alert notification service.")
-    parser.add_argument("-p", "--port", type=int, required=True, help="The service port")
-    parser.add_argument("-k", "--key", type=str, required=True, help="The webhook url key")
+    parser.add_argument("-p", "--port", type=int, default=os.getenv('PORT', 5000), help="The service port")
+    parser.add_argument("-k", "--key", type=str, default=os.getenv('KEY', 'default_key'), help="The webhook url key")
     args = parser.parse_args()
 
     if not args.port or not args.key:

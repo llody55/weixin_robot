@@ -1,0 +1,11 @@
+version: '3'
+services:
+  weixin-robot:
+    image: llody/weixin-robot-amd64:latest
+    container_name: mysql
+    restart: always
+    ports:
+      - "6000:6000"
+    environment:
+      - PORT=6000
+      - KEY=https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=744ad541-e6b1-4a3b-8aeb-4a01457cb646

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: weixin-robot
+spec:
+  containers:
+  - name: weixin-robot
+    image: llody/weixin-robot-amd64:latest
+    ports:
+    - containerPort: 6000
+    env:
+    - name: PORT
+      value: "6000"
+    - name: KEY
+      value: "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=744ad541-e6b1-4a3b-8aeb-4a01457cb646"
