@@ -1,0 +1,11 @@
+[Unit]
+Description=This is alert manager
+After=docker.service
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3.10.2 /data/weixin_robot/app.py -p 6000 -k https://qyapi.weixin.qq.com/cgi-bin/XXXX {替换机器人key}
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+Restart=on-failure
+[Install]
+WantedBy=multi-user.target

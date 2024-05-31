@@ -3,8 +3,8 @@ Author: llody 745719408@qq.com
 Date: 2024-05-29 16:54:49
 LastEditors: llody 745719408@qq.com
 LastEditTime: 2024-05-30 10:40:38
-FilePath: weixin_robot\main.py
-Description: 
+FilePath: \K8S\组件包\云原生监控\prometheus-llody\weixin_robot\main.py
+Description: 微信机器人通知
 '''
 
 import os

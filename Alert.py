@@ -3,7 +3,7 @@ Author: llody 745719408@qq.com
 Date: 2024-05-29 16:48:58
 LastEditors: llody 745719408@qq.com
 LastEditTime: 2024-05-30 11:08:17
-FilePath: \K8S\组件包\云原生监控\prometheus-llody\docker部署\Alert.py
+FilePath: \K8S\组件包\云原生监控\prometheus-llody\weixin_robot\Alert.py
 Description: 微信机器人告警脚本
 '''
 # -*- coding: UTF-8 -*-

@@ -5,7 +5,7 @@ metadata:
 spec:
   containers:
   - name: weixin-robot
-    image: llody/weixin-robot-amd64:latest
+    image: llody/weixin-robot:v1-amd64
     ports:
     - containerPort: 6000
     env:

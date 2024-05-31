@@ -1,7 +1,7 @@
 version: '3'
 services:
   weixin-robot:
-    image: llody/weixin-robot-amd64:latest
+    image: llody/weixin-robot:v1-amd64
     container_name: mysql
     restart: always
     ports:
