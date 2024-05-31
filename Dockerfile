@@ -1,5 +1,5 @@
 # 第一阶段
-FROM python:3.10.2 as builder
+FROM python:3.10.2-slim as builder
 
 # 设置环境变量
 ENV PIP_CACHE_DIR=/app/.cache 
@@ -16,7 +16,7 @@ RUN pip install --no-cache-dir -r requirements.txt -i https://pypi.tuna.tsinghua
 
 
 # 第二阶段
-FROM python:3.10.2
+FROM python:3.10.2-slim
 
 LABEL maintainer="llody55"
 

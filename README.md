@@ -95,7 +95,7 @@ systemctl enable weixin-robot.service
 ```bash
 docker run \
     -e PORT=6000 \
-    -e KEY=https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=XXXXXXXXX  \
+    -e KEY=https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=744ad541-e6b1-4a3b-8aeb-4a01447cb646  \
     -itd \
     --name weixin-robot \
     --restart=always \
